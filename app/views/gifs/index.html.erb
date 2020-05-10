@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <h1>Gifs</h1>
+
+  <%= render "form", gif: @gif %>
+
+  <% @gifs.each do |gif| %>
+    <div class="card mb-2">
+      <div class="card-body">
+        <h5 class="card-title text-muted">
+          <%= gif.title %>
+        </h5>
+        <div class="card-text lead mb-2">
+          <%= gif.description %>
+        </div>
+
+        <%= image_tag gif.file, class: "rounded float-left" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
