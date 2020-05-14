@@ -1,24 +1,17 @@
-<p id="notice"><%= notice %></p>
+<%= render "form", gif: @gif %>
 
-<div class="container">
-  <h1>Gifs</h1>
-
-  <%= render "form", gif: @gif %>
-
+<div class="card-columns gifs grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "percentPosition": "true" }'>
   <% @gifs.each do |gif| %>
-    <div class="card mb-2">
+    <div class="card gif-item grid-size">
+      <%= image_tag gif.file, class: "card-img-top" %>
       <div class="card-body">
         <h5 class="card-title text-muted">
           <%= gif.title %>
         </h5>
-        <div class="card-text lead mb-2">
+        <p class="card-subtitle lead mb-2">
           <%= gif.description %>
-        </div>
-
-        <%= image_tag gif.file, class: "rounded float-left" %>
+        </p>
       </div>
     </div>
   <% end %>
 </div>
-
-<br>

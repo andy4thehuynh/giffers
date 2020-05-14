@@ -1,32 +1,41 @@
-<%= form_with(model: gif, local: true, input_html: { class: "md-form md-4" }) do |form| %>
-  <% if gif.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(gif.errors.count, "error") %> prohibited this gif from being saved:</h2>
+<div class="row">
+  <div class="col-md"></div>
+  <div class="col-md">
+    <h1>Upload a gif:</h1>
 
-      <ul>
-        <% gif.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= form_with(model: gif, local: true) do |f| %>
+      <% if gif.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(gif.errors.count, "error") %> prohibited this gif from being saved:</h2>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+          <ul>
+            <% gif.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+
+      <div class="form-group file-field">
+        <%= f.label :file %>
+        <%= f.file_field :file, class: "form-control-file" %>
+      </div>
+
+      <div class="form-group actions">
+        <%= f.submit "Create Gif", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="file-field">
-    <%= form.label :file %>
-    <%= form.file_field :file %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  <div class="col-md"></div>
+</div>
