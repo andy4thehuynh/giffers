@@ -8,7 +8,7 @@ gem "aws-sdk-s3", "~> 1.61"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "dotenv-rails"
 gem "pg"
-gem "puma", "~> 4.1"
+gem "puma", "~> 4.3"
 gem "redis", "~> 4.1"
 gem "sass-rails", ">= 6"
 gem "stimulus_reflex", "~> 3.1"
